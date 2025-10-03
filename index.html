@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Studio Lumen — Interior Design</title>
+  <meta name="description" content="Studio Lumen is a boutique interior design studio crafting warm, functional spaces for homes and hospitality." />
+  <meta name="theme-color" content="#0a0a0a" />
+  <!-- Open Graph -->
+  <meta property="og:title" content="Studio Lumen — Interior Design" />
+  <meta property="og:description" content="Warm, functional interiors for homes & hospitality." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="/images/og.jpg" />
+  <meta property="og:url" content="https://yourdomain.com" />
+
+  <style>
+    :root{
+      --bg: #0f1113;
+      --text: #e9ecef;
+      --muted: #a9b1b6;
+      --brand: #d9ad7c; /* a warm sand tone */
+      --card: #15181b;
+      --accent: #88c0d0;
+      --radius: 18px;
+      --maxw: 1200px;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0; padding:0; background:var(--bg); color:var(--text); font-family: system-ui,-apple-system,Segoe UI,Roboto,Inter,Helvetica,Arial,sans-serif; line-height:1.5}
+    img{max-width:100%; display:block; height:auto; border-radius:12px}
+    a{color:var(--text); text-decoration:none}
+    a:hover{opacity:.9}
+    .container{max-width:var(--maxw); margin-inline:auto; padding:0 20px}
+    header{position:sticky; top:0; z-index:100; background:rgba(15,17,19,.8); backdrop-filter: blur(8px); border-bottom: 1px solid rgba(255,255,255,.06)}
+    .nav{display:flex; align-items:center; justify-content:space-between; padding:14px 0}
+    .brand{display:flex; align-items:center; gap:10px; font-weight:700; letter-spacing:.5px}
+    .brand-dot{width:10px; height:10px; background:var(--brand); border-radius:50%}
+    .menu{display:flex; gap:22px}
+    .menu a{color:var(--muted); font-size:.95rem}
+    .menu a.active, .menu a:hover{color:var(--text)}
+    .btn{display:inline-flex; align-items:center; justify-content:center; padding:10px 16px; border-radius:12px; background:var(--brand); color:#1a1a1a; font-weight:600}
+    .btn.ghost{background:transparent; color:var(--text); border:1px solid rgba(255,255,255,.12)}
+    .hero{padding:64px 0 24px}
+    .hero-inner{display:grid; grid-template-columns: 1.2fr .8fr; gap:28px; align-items:center}
+    .eyebrow{color:var(--brand); font-weight:600; letter-spacing:.12em; text-transform:uppercase; font-size:.8rem}
+    h1{font-size:clamp(2rem,4vw,3.2rem); line-height:1.1; margin:10px 0 12px}
+    .lead{color:var(--muted); font-size: clamp(1rem, 1.3vw, 1.125rem)}
+    .hero-cta{display:flex; gap:12px; margin-top:18px}
+    .hero-card{background:linear-gradient(180deg, #191c20 0%, #0f1113 100%); padding:18px; border:1px solid rgba(255,255,255,.06); border-radius:var(--radius)}
+
+    .strip{display:grid; grid-template-columns: repeat(6,1fr); gap:10px; margin-top:18px}
+    .strip img{aspect-ratio: 4/3; object-fit:cover}
+
+    section{padding:56px 0}
+    .section-title{display:flex; align-items:end; justify-content:space-between; margin-bottom:18px}
+    .section-title h2{margin:0; font-size: clamp(1.4rem, 2.2vw, 2rem)}
+    .muted{color:var(--muted)}
+
+    /* Services */
+    .cards{display:grid; grid-template-columns: repeat(3,1fr); gap:16px}
+    .card{background:var(--card); border:1px solid rgba(255,255,255,.06); border-radius:var(--radius); padding:18px}
+    .card h3{margin:6px 0 6px}
+
+    /* Portfolio */
+    .grid{display:grid; grid-template-columns: repeat(3,1fr); gap:14px}
+    .grid .item{position:relative; overflow:hidden; border-radius:14px; border:1px solid rgba(255,255,255,.06)}
+    .grid .item:hover .caption{transform: translateY(0)}
+    .caption{position:absolute; inset:auto 0 0 0; background:linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,.7) 100%); padding:14px; transform: translateY(40%); transition: .25s ease}
+    .caption strong{display:block}
+
+    /* About */
+    .about{display:grid; grid-template-columns: 1fr 1fr; gap:24px}
+    .about .panel{background:var(--card); border:1px solid rgba(255,255,255,.06); border-radius:var(--radius); padding:18px}
+
+    /* Testimonials */
+    .quotes{display:grid; grid-template-columns: repeat(3,1fr); gap:16px}
+    .quote{background:var(--card); border:1px solid rgba(255,255,255,.06); border-radius:var(--radius); padding:18px; font-size:.98rem}
+    .quote footer{margin-top:10px; color:var(--muted)}
+
+    /* Contact */
+    form{display:grid; gap:10px}
+    label{font-size:.9rem; color:var(--muted)}
+    input, textarea, select{width:100%; padding:12px; border-radius:12px; border:1px solid rgba(255,255,255,.12); background:#0d0f11; color:var(--text)}
+    .cols{display:grid; grid-template-columns: 1fr 1fr; gap:10px}
+
+    footer{padding:24px 0 56px; border-top:1px solid rgba(255,255,255,.06)}
+
+    /* Utilities */
+    .pill{display:inline-flex; align-items:center; gap:8px; padding:8px 12px; border:1px solid rgba(255,255,255,.12); border-radius:999px; color:var(--muted); font-size:.85rem}
+    .right{justify-content:flex-end}
+
+    /* Responsive */
+    @media (max-width: 900px){
+      .hero-inner{grid-template-columns:1fr}
+      .cards{grid-template-columns:1fr}
+      .grid{grid-template-columns:1fr 1fr}
+      .about{grid-template-columns:1fr}
+      .quotes{grid-template-columns:1fr}
+      .cols{grid-template-columns:1fr}
+      .menu{display:none}
+      .menu.open{display:flex; position:absolute; top:56px; right:20px; background:#0e1012; padding:12px 14px; border-radius:12px; border:1px solid rgba(255,255,255,.1); flex-direction:column}
+      .hamburger{display:flex}
+    }
+    @media (min-width: 901px){
+      .hamburger{display:none}
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Studio Lumen",
+    "image": "https://yourdomain.com/images/og.jpg",
+    "url": "https://yourdomain.com",
+    "telephone": "+381 11 123 4567",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Nemanjina 10",
+      "addressLocality": "Belgrade",
+      "postalCode": "11000",
+      "addressCountry": "RS"
+    },
+    "priceRange": "€€€",
+    "sameAs": [
+      "https://www.instagram.com/yourstudio",
+      "https://www.pinterest.com/yourstudio"
+    ]
+  }
+  </script>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#top" aria-label="Studio Lumen home">
+        <span class="brand-dot" aria-hidden="true"></span>
+        Studio Lumen
+      </a>
+      <nav class="menu" id="menu">
+        <a href="#work" class="active">Work</a>
+        <a href="#services">Services</a>
+        <a href="#about">About</a>
+        <a href="#testimonials">Kind words</a>
+        <a href="#contact" class="btn">Start a project</a>
+      </nav>
+      <button class="hamburger btn ghost" aria-label="Open menu" onclick="toggleMenu()">☰</button>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <main id="top" class="container">
+    <section class="hero">
+      <div class="hero-inner">
+        <div>
+          <div class="eyebrow">INTERIOR DESIGN / BELGRADE & BEYOND</div>
+          <h1>We craft warm, functional interiors that age beautifully.</h1>
+          <p class="lead">Homes, hospitality, and small commercial spaces. From concept & materials to turnkey delivery, we obsess over flow, lighting, and tactile detail.</p>
+          <div class="hero-cta">
+            <a href="#contact" class="btn">Book a free consult</a>
+            <a href="#work" class="btn ghost">See our work</a>
+          </div>
+          <div style="margin-top:14px" class="muted">Avg. project timeline 6–12 weeks • In-person & remote</div>
+        </div>
+        <div class="hero-card">
+          <div class="strip">
+            <img src="https://images.unsplash.com/photo-1505691723518-36a5ac3b2d42?q=80&w=800&auto=format&fit=crop" alt="Warm living room with wooden accents"/>
+            <img src="https://images.unsplash.com/photo-1505691938895-1758d7feb511?q=80&w=800&auto=format&fit=crop" alt="Minimal kitchen with stone countertop"/>
+            <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?q=80&w=800&auto=format&fit=crop" alt="Sunlit bedroom with linen bedding"/>
+            <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?q=80&w=800&auto=format&fit=crop" alt="Neutral-toned living space"/>
+            <img src="https://images.unsplash.com/photo-1616594039964-ae9021a400a0?q=80&w=800&auto=format&fit=crop" alt="Statement staircase"/>
+            <img src="https://images.unsplash.com/photo-1484101403633-562f891dc89a?q=80&w=800&auto=format&fit=crop" alt="Dining table with pendant lights"/>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services">
+      <div class="section-title">
+        <h2>Services</h2>
+        <span class="pill">From concept to completion</span>
+      </div>
+      <div class="cards">
+        <article class="card">
+          <h3>Full-Service Interior Design</h3>
+          <p class="muted">Concept, moodboards, drawings, materials, procurement, and site coordination for renovations and new builds.</p>
+        </article>
+        <article class="card">
+          <h3>Design Refresh</h3>
+          <p class="muted">Furniture, lighting, textiles, and styling to elevate existing spaces without major construction.</p>
+        </article>
+        <article class="card">
+          <h3>Consultation</h3>
+          <p class="muted">90-minute video or on-site consult: layout tweaks, paint & finishes, storage ideas, and lighting guidance.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Portfolio -->
+    <section id="work">
+      <div class="section-title">
+        <h2>Selected Work</h2>
+        <a class="pill right" href="#contact">Request full portfolio →</a>
+      </div>
+      <div class="grid" aria-live="polite">
+        <!-- Replace with your own project images -->
+        <a class="item" href="#" onclick="openLightbox(event, this)">
+          <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?q=80&w=1200&auto=format&fit=crop" alt="Apartment A living room"/>
+          <div class="caption"><strong>Apartment A</strong><span class="muted">Living • 2024</span></div>
+        </a>
+        <a class="item" href="#" onclick="openLightbox(event, this)">
+          <img src="https://images.unsplash.com/photo-1505691723518-36a5ac3b2d42?q=80&w=1200&auto=format&fit=crop" alt="Loft kitchen"/>
+          <div class="caption"><strong>Loft K7</strong><span class="muted">Kitchen • 2023</span></div>
+        </a>
+        <a class="item" href="#" onclick="openLightbox(event, this)">
+          <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?q=80&w=1200&auto=format&fit=crop" alt="Townhouse corridor"/>
+          <div class="caption"><strong>Townhouse S</strong><span class="muted">Circulation • 2022</span></div>
+        </a>
+        <a class="item" href="#" onclick="openLightbox(event, this)">
+          <img src="https://images.unsplash.com/photo-1616594039964-ae9021a400a0?q=80&w=1200&auto=format&fit=crop" alt="Stairwell"/>
+          <div class="caption"><strong>Casa Verde</strong><span class="muted">Stairs • 2024</span></div>
+        </a>
+        <a class="item" href="#" onclick="openLightbox(event, this)">
+          <img src="https://images.unsplash.com/photo-1484101403633-562f891dc89a?q=80&w=1200&auto=format&fit=crop" alt="Dining nook"/>
+          <div class="caption"><strong>Riverside</strong><span class="muted">Dining • 2023</span></div>
+        </a>
+        <a class="item" href="#" onclick="openLightbox(event, this)">
+          <img src="https://images.unsplash.com/photo-1505691938895-1758d7feb511?q=80&w=1200&auto=format&fit=crop" alt="Bedroom"/>
+          <div class="caption"><strong>Hotel N</strong><span class="muted">Suite • 2022</span></div>
+        </a>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about">
+      <div class="section-title">
+        <h2>About</h2>
+        <span class="pill">Function × Texture × Light</span>
+      </div>
+      <div class="about">
+        <div class="panel">
+          <h3>Our Approach</h3>
+          <p class="muted">We believe interiors should be calm, adaptive, and tactile. We begin with flow and light, then layer materials that patina gracefully—stone, wood, linen, and metal. We manage the full journey so you can enjoy the reveal.</p>
+        </div>
+        <div class="panel">
+          <h3>Capabilities</h3>
+          <ul class="muted">
+            <li>Concept & moodboards</li>
+            <li>CAD/3D & construction docs</li>
+            <li>FF&E sourcing & procurement</li>
+            <li>Lighting & electrical plans</li>
+            <li>Contractor coordination</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimonials">
+      <div class="section-title">
+        <h2>Kind Words</h2>
+        <span class="pill">Average rating 5.0</span>
+      </div>
+      <div class="quotes">
+        <blockquote class="quote">“They transformed our flat into a sanctuary. The lighting plan alone changed how we live.”<footer>— Ana & Marko</footer></blockquote>
+        <blockquote class="quote">“On time, on budget, and with impeccable taste. We trusted them with every decision.”<footer>— Hotel N, GM</footer></blockquote>
+        <blockquote class="quote">“Thoughtful storage and soft materials made our small space feel generous.”<footer>— Jelena P.</footer></blockquote>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+      <div class="section-title">
+        <h2>Start a Project</h2>
+        <span class="pill">We reply within 1–2 business days</span>
+      </div>
+      <form action="https://formspree.io/f/your-id" method="POST" aria-label="Contact form">
+        <div class="cols">
+          <div>
+            <label for="name">Your name</label>
+            <input id="name" name="name" required />
+          </div>
+          <div>
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" required />
+          </div>
+        </div>
+        <div class="cols">
+          <div>
+            <label for="budget">Budget (EUR)</label>
+            <select id="budget" name="budget">
+              <option value="unsure">Unsure</option>
+              <option value="10-25k">€10–25k</option>
+              <option value="25-50k">€25–50k</option>
+              <option value="50-100k">€50–100k</option>
+              <option value=">100k">€100k+</option>
+            </select>
+          </div>
+          <div>
+            <label for="timeline">Timeline</label>
+            <select id="timeline" name="timeline">
+              <option value="flexible">Flexible</option>
+              <option value="1-3mo">1–3 months</option>
+              <option value="3-6mo">3–6 months</option>
+              <option value=">6mo">6+ months</option>
+            </select>
+          </div>
+        </div>
+        <div>
+          <label for="message">Tell us about your space</label>
+          <textarea id="message" name="message" rows="5" placeholder="Project type, size, location, goals"></textarea>
+        </div>
+        <div>
+          <button class="btn" type="submit">Send message</button>
+        </div>
+        <small class="muted">By submitting, you agree to our <a href="#" onclick="openPolicy(event,'privacy')">Privacy Policy</a>.</small>
+      </form>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container" style="display:grid; grid-template-columns:1fr auto; gap:12px; align-items:center">
+      <div>
+        <strong>Studio Lumen</strong> · Belgrade · <a href="mailto:hello@yourdomain.com">hello@yourdomain.com</a>
+        <div class="muted">© <span id="year"></span> Studio Lumen. All rights reserved.</div>
+      </div>
+      <div style="display:flex; gap:10px">
+        <a class="pill" href="https://www.instagram.com/yourstudio" target="_blank" rel="noopener">Instagram</a>
+        <a class="pill" href="#" onclick="openPolicy(event,'cookies')">Cookies</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Simple Lightbox & modal policies -->
+  <dialog id="lightbox" style="border:none; padding:0; background:transparent">
+    <img id="lightbox-img" src="" alt="Expanded work image" style="max-width:90vw; max-height:85vh; border-radius:16px; border:1px solid rgba(255,255,255,.2)"/>
+  </dialog>
+
+  <dialog id="policy" style="max-width:min(800px, 92vw); border:1px solid rgba(255,255,255,.2); border-radius:16px; background:#0e1012; color:var(--text)">
+    <div style="padding:18px">
+      <h3 id="policy-title" style="margin-top:0">Privacy Policy</h3>
+      <p class="muted" id="policy-body">We collect form submissions (name, email, project details) to respond to inquiries. Data is stored by our form provider and email client and not shared with third parties. You can request deletion at any time via email. Cookies: basic analytics and performance only.</p>
+      <div style="display:flex; justify-content:flex-end; margin-top:10px"><button class="btn" onclick="document.getElementById('policy').close()">Close</button></div>
+    </div>
+  </dialog>
+
+  <script>
+    const yearEl = document.getElementById('year');
+    if(yearEl) yearEl.textContent = new Date().getFullYear();
+
+    function toggleMenu(){
+      const m = document.getElementById('menu');
+      m.classList.toggle('open');
+    }
+    function openLightbox(e, el){
+      e.preventDefault();
+      const img = el.querySelector('img');
+      const dlg = document.getElementById('lightbox');
+      const big = document.getElementById('lightbox-img');
+      big.src = img.src.replace('w=1200','w=1600');
+      dlg.showModal();
+      dlg.addEventListener('click', () => dlg.close(), { once: true });
+    }
+    function openPolicy(e, which){
+      e.preventDefault();
+      const dlg = document.getElementById('policy');
+      const title = document.getElementById('policy-title');
+      const body = document.getElementById('policy-body');
+      if(which==='cookies'){
+        title.textContent = 'Cookie Notice';
+        body.textContent = 'We use minimal first-party cookies or privacy-focused analytics to improve the site. You may block cookies in your browser. Continued use implies consent.';
+      } else {
+        title.textContent = 'Privacy Policy';
+        body.textContent = 'We collect form submissions (name, email, project details) to respond to inquiries. Data is stored by our form provider and email client and not shared with third parties. You can request deletion at any time via email. Cookies: basic analytics and performance only.';
+      }
+      dlg.showModal();
+    }
+  </script>
+</body>
+</html>
